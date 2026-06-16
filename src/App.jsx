@@ -2,7 +2,8 @@ import {
   FaWhatsapp,
   FaCode,
   FaRocket,
-  FaLaptopCode
+  FaLaptopCode,
+  FaAffiliatetheme
 } from "react-icons/fa";
 
 import { Menu, X } from "lucide-react";
@@ -13,9 +14,10 @@ import Image7 from './assets/7.jpg'
 import Image4 from './assets/4.jpg'
 import Image5 from './assets/5.jpg'
 import Image6 from './assets/6.jpg'
-import videoProject from './assets/1.mp4'
+import videoProject from './assets/hero(2).mp4'
 import videoProject2 from './assets/2.mp4'
 import videoProject4 from './assets/4.mp4'
+import videoProject5 from './assets/5.mp4'
 export default function LandingPage() {
   const projects = [
   {
@@ -30,6 +32,13 @@ export default function LandingPage() {
     title: "Palak Mucchal ",
     description: "Analytics dashboard for business insights.",
     video: videoProject2,
+    technologies: ["React", "FastAPI", "PostgreSQL"],
+  },
+  {
+    id: 2,
+    title: "Wedlock Greens ",
+    description: "Analytics dashboard for business insights.",
+    video: videoProject5,
     technologies: ["React", "FastAPI", "PostgreSQL"],
   },
 ];
@@ -122,7 +131,7 @@ export default function LandingPage() {
             </h1>
 
             <p className="text-lg mb-8">
-              We create beautiful websites and scalable
+              We create beautiful visuals and scalable
               digital solutions that help businesses grow.
             </p>
 
@@ -179,9 +188,7 @@ export default function LandingPage() {
             </h3>
 
             <p className="text-gray-600">
-              We specialize in building modern web
-              applications, business automation systems,
-              and AI-powered solutions.
+             We are a creative visual solutions company specializing in high-impact LED display setups, dynamic stage backdrops, and immersive visual experiences for conferences, corporate meetings, exhibitions, festivals, and live events.
             </p>
           </div>
         </div>
@@ -236,30 +243,39 @@ export default function LandingPage() {
             <div className="bg-white p-8 rounded-xl shadow">
               <FaCode className="text-4xl mb-4 text-blue-600" />
               <h3 className="font-bold text-xl mb-3">
-                Web Development
+                Meetings
               </h3>
               <p>
-                Modern React, Next.js and Tailwind websites.
+                
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow">
               <FaRocket className="text-4xl mb-4 text-blue-600" />
               <h3 className="font-bold text-xl mb-3">
-                Digital Growth
+                College Fests
               </h3>
               <p>
-                SEO, marketing and conversion optimization.
+                
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow">
               <FaLaptopCode className="text-4xl mb-4 text-blue-600" />
               <h3 className="font-bold text-xl mb-3">
-                Software Solutions
+                Weddings
               </h3>
               <p>
-                Custom business applications and automation.
+                
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-xl shadow">
+              <FaAffiliatetheme className="text-4xl mb-4 text-blue-600" />
+              <h3 className="font-bold text-xl mb-3">
+                Promotional Events
+              </h3>
+              <p>
+                
               </p>
             </div>
 
