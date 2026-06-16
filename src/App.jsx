@@ -7,8 +7,35 @@ import {
 
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-
+import aboutImage from './assets/1.jpg'
+import Image2 from './assets/2.jpg'
+import Image7 from './assets/7.jpg'
+import Image4 from './assets/4.jpg'
+import Image5 from './assets/5.jpg'
+import Image6 from './assets/6.jpg'
+import videoProject from './assets/1.mp4'
+import videoProject2 from './assets/2.mp4'
+import videoProject4 from './assets/4.mp4'
 export default function LandingPage() {
+  const projects = [
+  {
+    id: 1,
+    title: "IIT ISM Dhanbad",
+    description: "Custom AI chatbot for customer support.",
+    video: videoProject4,
+    technologies: ["React", "Node.js", "OpenAI"],
+  },
+  {
+    id: 2,
+    title: "Palak Mucchal ",
+    description: "Analytics dashboard for business insights.",
+    video: videoProject2,
+    technologies: ["React", "FastAPI", "PostgreSQL"],
+  },
+];
+
+ const galleryImages = [Image2,Image7,Image4,Image5,Image6];
+
 
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -122,7 +149,7 @@ export default function LandingPage() {
               lg:h-120
               object-cover rounded-4xl shadow-lg"
              >
-             <source src="./2.mp4" type="video/mp4" />
+             <source src={videoProject} type="video/mp4" />
              </video>
           </div>
 
@@ -141,7 +168,7 @@ export default function LandingPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
 
           <img
-            src="./1.jpg"
+            src={aboutImage}
             alt=""
             className="w-full h-auto object-cover rounded-xl"
           />
@@ -159,6 +186,39 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+       {/* Photos */}
+      <section
+        id="projects"
+        className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <h2 className="text-4xl font-bold text-center mb-12">
+          Photo Gallery
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+      {galleryImages.map((image, index) => (
+        <div
+          key={index}
+          className="overflow-hidden rounded-xl"
+        >
+          <img
+            src={image}
+            alt={`Gallery ${index + 1}`}
+            className="
+              w-full
+              h-64
+              object-cover
+              hover:scale-110
+              transition
+              duration-500
+            "
+          />
+        </div>
+      ))}
+      </div>       
+     </section>
+
 
       {/* Services */}
       <section
@@ -217,17 +277,44 @@ export default function LandingPage() {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          {projects.map((project) => (
+          <div
+             key={project.id}
+             className="rounded-xl overflow-hidden shadow-lg bg-white"
+          >
+           <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-64 md:h-96 object-cover"
+           >
+           <source src={project.video} type="video/mp4" />
+          </video>
+          <div className="p-6">
+           <h3 className="text-2xl font-semibold">
+            {project.title}
+           </h3>
 
-          {[1, 2].map((item) => (
+           {/* <p className="mt-3 text-gray-600">
+            {project.description}
+          </p> */}
+          </div>
+        </div>
+        
+          ))}
+
+          {/* {[1, 2].map((item) => (
             <div
               key={item}
               className="rounded-xl overflow-hidden shadow-lg"
             >
-              {/* <img
+              { <img
                 src={`https://picsum.photos/600/400?random=${item}`}
                 alt=""
                 className="w-full h-auto object-cover"
-              /> */}
+              /> }
               <video
                 autoPlay
                 muted
@@ -236,7 +323,7 @@ export default function LandingPage() {
                 className="w-full h-64 md:h-96 lg:h-120 object-cover rounded-2xl"
 
               >
-               <source src="./2.mp4" type="video/mp4" />
+               <source src={videoProject}type="video/mp4" />
               </video>
 
               <div className="p-5">
@@ -250,9 +337,10 @@ export default function LandingPage() {
                 </p>
               </div>
             </div>
-          ))}
-
-        </div>
+          ))} */}
+        
+      </div>
+      
       </section>
 
       {/* Contact */}
@@ -267,15 +355,16 @@ export default function LandingPage() {
           </h2>
 
           <p className="mb-3">
-            Email: thembaledwall@gmail.com.com
+            Email: thembaledwall@gmail.com
           </p>
 
+          <a href="tel:9102050979">
           <p className="mb-3">
             Phone: +91 9102050979
           </p>
-
+          </a>
           <p>
-            Location: Dhanbad, India
+            Location: Dhanbad, Jharkhand
 
           </p>
 
