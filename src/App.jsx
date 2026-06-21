@@ -6,8 +6,13 @@ import {
   FaAffiliatetheme
 } from "react-icons/fa";
 
+import Gallery from "./components/gallery";
+import Photos from "./components/Image";  {/*add routing to gallery and merge photos and videos add photos and videos ui background animation*/}
+import Theme from "./components/theme"
+
+
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import aboutImage from './assets/1.jpg'
 import Image2 from './assets/2.jpg'
 import Image7 from './assets/7.jpg'
@@ -19,6 +24,8 @@ import videoProject2 from './assets/2.mp4'
 import videoProject4 from './assets/4.mp4'
 import videoProject5 from './assets/5.mp4'
 export default function LandingPage() {
+
+
   const projects = [
   {
     id: 1,
@@ -44,24 +51,36 @@ export default function LandingPage() {
 ];
 
  const galleryImages = [Image2,Image7,Image4,Image5,Image6];
-
-
+ 
+ 
+ 
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
   const [isOpen, setIsOpen] = useState(false);
+  const [isView, setIsView] = useState(false);
+  const [open, setOpen] = useState(false);
   return (
-    <div className="min-h-screen bg-white">
-
+    <div className="min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white">
+      
+      
       {/* Navbar */}
-      <nav className="fixed top-0 w-full bg-white shadow z-50">
+      <nav className="fixed top-0 w-full bg-white text-black dark:bg-gray-900 dark:text-white shadow z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between">
           <h1 className="text-2xl font-bold text-blue-600">
             TheMbaLedWalla
           </h1>
           {/* Desktop Menu */}
-          <div className="hidden md:flex gap-8">
+          <div className="hidden md:flex gap-8  bg-white text-black dark:bg-gray-900 dark:text-white">
+           
             <a href="#about">About</a>
             <a href="#services">Services</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
+            <Theme darkMode={darkMode}
+        setDarkMode={setDarkMode}></Theme>
+
+
           </div>
           {/* Mobile Button */}
           <button
@@ -80,7 +99,7 @@ export default function LandingPage() {
 
         {/* Mobile Menu */}
          {isOpen && (
-           <div className="md:hidden bg-white shadow-lg">
+           <div className="md:hidden  bg-white text-black dark:bg-gray-900 dark:text-white shadow-lg">
 
            <div className="flex flex-col p-4 space-y-4">
 
@@ -111,6 +130,8 @@ export default function LandingPage() {
              >
               Contact
              </a>
+             <Theme darkMode={darkMode}
+        setDarkMode={setDarkMode} className="cursor-pointer"></Theme>
 
           </div>
           </div>
@@ -195,7 +216,8 @@ export default function LandingPage() {
       </section>
 
        {/* Photos */}
-      <section
+       <Photos></Photos>
+      {/* <section
         id="projects"
         className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
@@ -212,6 +234,8 @@ export default function LandingPage() {
           <img
             src={image}
             alt={`Gallery ${index + 1}`}
+            style={{ cursor: "pointer" }}
+            onClick={() => setIsView(true)}
             className="
               w-full
               h-64
@@ -221,16 +245,46 @@ export default function LandingPage() {
               duration-500
             "
           />
+          {isView && (
+        <div
+          onClick={() => setIsView(false)}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            background: "rgba(0,0,0,0.8)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <img
+            src={image}
+            alt={`Gallery ${index + 1}`}
+            style={{
+              maxWidth: "90%",
+              maxHeight: "90%",
+            }}
+          />
+        </div>
+      )}
+
+
+
+
+
         </div>
       ))}
       </div>       
-     </section>
+     </section> */}
 
 
       {/* Services */}
       <section
         id="services"
-        className="bg-gray-50 py-24"
+        className="border bg-gray-50 text-black dark:bg-gray-900 dark:text-white  dark:border-gray-800 py-24"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -240,7 +294,7 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <div className="bg-white p-8 rounded-xl shadow">
+            <div className="bg-white text-black dark:bg-gray-900 dark:text-white border dark:border-gray-800 p-8 rounded-xl shadow">
               <FaCode className="text-4xl mb-4 text-blue-600" />
               <h3 className="font-bold text-xl mb-3">
                 Meetings
@@ -250,7 +304,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow">
+            <div className= "bg-white text-black dark:bg-gray-900 dark:text-white border dark:border-gray-800 p-8 rounded-xl shadow">
               <FaRocket className="text-4xl mb-4 text-blue-600" />
               <h3 className="font-bold text-xl mb-3">
                 College Fests
@@ -260,7 +314,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow">
+            <div className=" bg-white text-black dark:bg-gray-900 dark:text-white border dark:border-gray-800 p-8 rounded-xl shadow">
               <FaLaptopCode className="text-4xl mb-4 text-blue-600" />
               <h3 className="font-bold text-xl mb-3">
                 Weddings
@@ -269,7 +323,7 @@ export default function LandingPage() {
                 
               </p>
             </div>
-            <div className="bg-white p-8 rounded-xl shadow">
+            <div className=" bg-white text-black dark:bg-gray-900 dark:text-white border dark:border-gray-800 p-8 rounded-xl shadow">
               <FaAffiliatetheme className="text-4xl mb-4 text-blue-600" />
               <h3 className="font-bold text-xl mb-3">
                 Promotional Events
@@ -284,7 +338,10 @@ export default function LandingPage() {
       </section>
 
       {/* Projects */}
-      <section
+
+      <Gallery></Gallery>
+
+      {/* <section
         id="projects"
         className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
@@ -304,18 +361,53 @@ export default function LandingPage() {
             muted
             loop
             playsInline
+            style={{ cursor: "pointer" }}
+            onClick={() => setOpen(true)}
             className="w-full h-64 md:h-96 object-cover"
            >
            <source src={project.video} type="video/mp4" />
           </video>
+                     
+          {open && (
+        <div
+          onClick={() => setOpen(false)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0,0,0,0.9)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 1000,
+          }}
+        >
+          
+          <video
+            controls
+            autoPlay
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              width: "80%",
+              maxHeight: "90vh",
+            }}
+          >
+            <source src={project.video} type="video/mp4" />
+          </video>
+          
+        </div>
+      )}
+
+
+
+
           <div className="p-6">
            <h3 className="text-2xl font-semibold">
             {project.title}
            </h3>
 
-           {/* <p className="mt-3 text-gray-600">
+           {<p className="mt-3 text-gray-600">
             {project.description}
-          </p> */}
+          </p> 
           </div>
         </div>
         
@@ -353,11 +445,11 @@ export default function LandingPage() {
                 </p>
               </div>
             </div>
-          ))} */}
+          ))} 
         
       </div>
       
-      </section>
+      </section> */}
 
       {/* Contact */}
       <section
@@ -399,7 +491,8 @@ export default function LandingPage() {
           className="text-white"
         />
       </a>
-
+     
+     
     </div>
   );
 }
