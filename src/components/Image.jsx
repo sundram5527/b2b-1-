@@ -16,10 +16,10 @@ const galleryImages = [Image2,Image7,Image4,Image5,Image6];
 const [selectedPhoto, setSelectedPhoto] = useState(null);
 
     return(
-        <div>
+        <div className="border border-gray-100 dark:border-gray-700">
        <section
         id="projects"
-        className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border dark:border-gray-800"
+        className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 "
       >
         <h2 className="text-4xl font-bold text-center mb-12">
           Photo Gallery
@@ -81,7 +81,7 @@ const [selectedPhoto, setSelectedPhoto] = useState(null);
       )}
 
         
-     /</div>
+     </div>
        
      </section>
 

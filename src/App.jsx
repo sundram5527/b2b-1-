@@ -284,7 +284,7 @@ export default function LandingPage() {
       {/* Services */}
       <section
         id="services"
-        className="border bg-gray-50 text-black dark:bg-gray-900 dark:text-white  dark:border-gray-800 py-24"
+        className=" border border-amber-50 bg-gray-50 text-black dark:bg-gray-900 dark:text-white dark:border-gray-800 py-24"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -294,7 +294,7 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <div className="bg-white text-black dark:bg-gray-900 dark:text-white border dark:border-gray-800 p-8 rounded-xl shadow">
+            <div className="bg-white text-black dark:bg-gray-900 dark:text-white border border-amber-50 dark:border-gray-800 p-8 rounded-xl shadow">
               <FaCode className="text-4xl mb-4 text-blue-600" />
               <h3 className="font-bold text-xl mb-3">
                 Meetings
@@ -304,7 +304,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className= "bg-white text-black dark:bg-gray-900 dark:text-white border dark:border-gray-800 p-8 rounded-xl shadow">
+            <div className= "bg-white text-black dark:bg-gray-900 dark:text-white border border-amber-50 dark:border-gray-800 p-8 rounded-xl shadow">
               <FaRocket className="text-4xl mb-4 text-blue-600" />
               <h3 className="font-bold text-xl mb-3">
                 College Fests
@@ -314,7 +314,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className=" bg-white text-black dark:bg-gray-900 dark:text-white border dark:border-gray-800 p-8 rounded-xl shadow">
+            <div className=" bg-white text-black dark:bg-gray-900 dark:text-white border border-white dark:border-gray-800 p-8 rounded-xl shadow">
               <FaLaptopCode className="text-4xl mb-4 text-blue-600" />
               <h3 className="font-bold text-xl mb-3">
                 Weddings
@@ -323,7 +323,7 @@ export default function LandingPage() {
                 
               </p>
             </div>
-            <div className=" bg-white text-black dark:bg-gray-900 dark:text-white border dark:border-gray-800 p-8 rounded-xl shadow">
+            <div className=" bg-white text-black dark:bg-gray-900 dark:text-white border border-amber-50 dark:border-gray-800 p-8 rounded-xl shadow">
               <FaAffiliatetheme className="text-4xl mb-4 text-blue-600" />
               <h3 className="font-bold text-xl mb-3">
                 Promotional Events

@@ -48,7 +48,7 @@ useEffect(() => {
 ];
 
 return(
-    <div className="border bg-white text-black dark:bg-gray-900 dark:text-white dark:border-gray-800">
+    <div className="border border-amber-50 bg-white text-black dark:bg-gray-900 dark:text-white dark:border-gray-800">
      <section
         id="projects"
         className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -62,7 +62,7 @@ return(
           {projects.map((project) => (
           <div
              key={project.id}
-             className="rounded-xl border border-gray-50 overflow-hidden shadow-lg  bg-white text-black dark:bg-gray-900 dark:text-white dark:border-yellow-700"
+             className="rounded-xl border border-gray-50 overflow-hidden shadow-lg  bg-white text-black dark:bg-gray-900 dark:text-white dark:border-yellow-800"
           >
            <video
             autoPlay
